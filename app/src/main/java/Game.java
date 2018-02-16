@@ -15,8 +15,8 @@ public class Game {
 
     public Game() {
         board = new Tile[BOARD_SIZE][BOARD_SIZE];
-        for(int i=0; i<BOARD_SIZE; i++)
-            for(int j=0; j<BOARD_SIZE; j++)
+        for (int i = 0; i < BOARD_SIZE; i++)
+            for (int j = 0; j < BOARD_SIZE; j++)
                 board[i][j] = Tile.BLANK;
 
         playerOneTurn = true;
