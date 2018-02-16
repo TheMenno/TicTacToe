@@ -1,3 +1,6 @@
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 /**
  * Created by menno_000 on 16-2-2018.
  */
@@ -21,12 +24,27 @@ public class Game {
     }
 
     public Tile draw(int row, int column) {
-        /*It has to retrieve the current value of the board at position (row, column).
-        If that place is still blank, we can go ahead and fill it.
-        if the current player is player one, fill it with a cross
-        if the current player is player two, fill it with a croos
-        in either case, make sure the other played gets the turn
-        also in both cases, make sure to return Tile.CROSS or Tile.CIRCLE to allow the UI to update
-        If that place isn’t blank, it’s an invalid move! Just return Tile.INVALID.*/
+        Tile current = board[row][column];
+
+        if (current == Tile.BLANK) {
+            if (playerOneTurn == TRUE) {
+                board[row][column] = Tile.CROSS;
+                playerOneTurn = FALSE;
+
+                return Tile.CROSS;
+            }
+
+            else {
+                board[row][column] = Tile.CIRCLE;
+                playerOneTurn = TRUE;
+
+                return Tile.CIRCLE;
+            }
+
+        }
+
+        else {
+            return Tile.INVALID;
+        }
     }
 }
